@@ -1,0 +1,30 @@
+full_price = 0
+ticket = int(input("Необходимое количество билетов = "))
+for i in range(ticket):
+    while True:
+       try:
+          what_age = int(input("Укажите возраст посетителя = "))
+          if what_age < 18 and what_age > 0:
+              price = 0
+              full_price = full_price+price
+              break
+          elif what_age >= 18 and what_age < 25:
+              price = 990
+              full_price = full_price + price
+              break
+          elif what_age >= 25 and what_age <= 100:
+              price = 1390
+              full_price = full_price + price
+              break
+          elif what_age > 100 or what_age <= 0:
+              raise ValueError("Вам не может быть столько лет")
+       except ValueError as error:
+          print("Ошибка! Введено неверное значение. Попробуйте снова.")
+
+
+
+print("---------")
+if ticket > 3:
+    print("Вы получили скидку 10%")
+    full_price = (full_price*0.9)
+print("Итоговая стоимость заказа = ", round(full_price))
